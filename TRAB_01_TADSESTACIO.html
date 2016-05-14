@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+    
+		<!--somente configuração-->
+		<!--A linha abaixo é responsável pela adição do movimento maximizar e minimizar da minha página-->
+		<script type="text/java" src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+
+		<!--A linha abaixo é responsável pelo estilo da minha página-->
+		<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.min.css" />
+
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Cadastro de Clientes</title>
+
+		<style>
+			.input-group-addon{
+				color: green;
+			}
+			.meucentro{
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body onload="document.cadastro.cpf.focus()" onload="document.cadastro.sim.checked=false; showhidefield()">
+
+		<!--
+		<img src="Koala.jpg" class="img-responsive" alt="Imagem responsiva" />
+		-->
+        
+		<div class="container jumbotron">
+        
+			<div class="alert alert-success" role="alert">
+				<h1 class="meucentro">Cadastro de Clientes</h1>
+			</div>
+			
+            
+			<form id="cadastro">
+            
+				<div class="row">
+					<div class="col-md-4">
+						<div class="input-group">
+							<span class="input-group-addon" id="basic-addon1">CPF</span>
+							<input type = "text"  id="campo-cpf" maxlength = "14" onblur="verificarCPF(cadastro.cpf.value)"  class="form-control" aria-describedby="basic-addon1" />
+						</div>
+					</div>
+                    
+					<div class="col-md-8">
+					
+						<div class="input-group">
+							<span class="input-group-addon" id="basic-addon2">Nome</span>
+                            <input type = "text"  id="nome" maxlength = "80" onblur="validaNome(cadastro.nome.value)"  class="form-control" aria-describedby="basic-addon2" />
+                          
+                        </div>
+					</div>
+					
+						
+				</div>
+                <br />
+                
+                <div class="row">
+					<div class="col-md-6">
+						<div class="input-group">
+							<span class="input-group-addon" id="basic-addon3">Endereço</span>
+                            <input type = "text"  id = "endereco" maxlength = "80" 			
+						onBlur = "validaCampos(cadastro.endereco.value)"  class="form-control" aria-describedby="basic-addon3" />
+                        </div>
+					</div>
+                    <div class="col-md-6">
+					    <div class="input-group">
+							<span class="input-group-addon" id="basic-addon4">Cidade</span>
+                            <input type = "text"  id = "cidade" maxlength = "50" class="form-control" aria-describedby="basic-addon4" />
+                         </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-6">
+						<div class="input-group">
+							<span class="input-group-addon" id="basic-addon5">Sexo</span>
+                            <select name="sexo" id="sexo" onBlur="validaSelect(cadastro.sexo.value)" class="form-control" aria-describedby="basic-addon5" /><option>--Escolher Sexo--</option>
+															 <option>Masculino</option>
+															 <option>Feminino</option></select>
+                         </div>
+                     </div>    
+                         
+                       <div class="col-md-6">  
+                         <div class="input-group">
+							<span class="input-group-addon" id="basic-addon6">Telefone</span>                                    
+						    <input type = "text"  name = "telefone" maxlength = "15" class="form-control" aria-describedby="basic-addon6" />
+                         </div>
+                       </div>
+                </div>
+                       <br />
+                           
+				<div class="row">
+                       <div class="col-md-6">  
+                          <div class="input-group">
+							<span class="input-group-addon" id="basic-addon7">E-mail(Login)</span>
+                            <input type = "text"  name = "email" onBlur="validaEmail()" maxlength = "40" class="form-control" aria-describedby="basic-addon7"/>
+                          </div>
+                       </div>
+                       
+                       <div class="col-md-6">   
+                          <div class="input-group">
+							<span class="input-group-addon" id="basic-addon8">Senha</span>
+                            <input type = "password" name = "senha" class="form-control" aria-describedby="basic-addon8"/>
+                          </div>
+                       </div> 
+                       <br />  
+                </div>  
+			           
+					   <br/>
+					   <div class="row">
+                       <div class="col-md-12">       
+						     Receber Promoções<input type = "checkbox" name = "sim" VALUE="sim" onclick="validaChekBox()"> Sim 
+											   <input type = "checkbox" name = "nao" VALUE="nao" onclick="validaChekBox()"> Não 
+											   <span name="msgPromo" id="msgPromo" class="style1" style="color:red"> A qualquer momento você poderá cancelar
+											   o recebimento dos e-mail's de promação enviando um e-mail com o assunto STOP EMAIL para o endereço
+											   Contato@estacio.br.</span>
+                       </div>
+						</div>
+						
+					<br />	                
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="obs">Obs:</label>
+								<TEXTAREA id="obs"  class="form-control" ROWS="6" ></TEXTAREA>
+							</div>
+						</div>
+						<br />
+					</div>
+
+					<br/>
+                    <div class="col-md-12">     
+						    <input type = "submit"  class="btn btn-primary" name = "enviar" value = "Enviar"> 
+							<input type = "submit"  class="btn btn-success" name = "valores" value = "Valores">
+                    </div>
+        </div>
+			</form>
+    </body>
+</html>
